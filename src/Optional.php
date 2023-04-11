@@ -3,6 +3,7 @@
 namespace Keerill\Optional;
 
 use InvalidArgumentException;
+use PHPUnit\Event\Code\Throwable;
 
 /**
  * @author serhatozdal
@@ -134,13 +135,16 @@ final class Optional
     }
 
     /**
-     * @param callable $exceptionSupplier
+     * @param callable(): Throwable $exceptionSupplier
      * @return T
      */
     public function orElseThrow(callable $exceptionSupplier)
     {
-        return $this->isPresent()
-            ? $this->value : $exceptionSupplier();
+        if ($this->isPresent()) {
+            return $this->value;
+        }
+
+        throw $exceptionSupplier();
     }
 
     /**

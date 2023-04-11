@@ -36,7 +36,7 @@ class OptionalTest extends TestCase
     public function test_or_else_throw_not_call_throw_when_value_not_empty()
     {
         $optional = Optional::of('value')
-            ->orElseThrow(fn () => throw new InvalidArgumentException());
+            ->orElseThrow(fn () => new InvalidArgumentException());
 
         $this->assertEquals('value', $optional);
     }
@@ -46,7 +46,7 @@ class OptionalTest extends TestCase
         $this->expectException(InvalidArgumentException::class);
 
         Optional::ofEmpty()
-            ->orElseThrow(fn () => throw new InvalidArgumentException());
+            ->orElseThrow(fn () => new InvalidArgumentException());
     }
 
     public function test_filter_value_when_value_is_empty()
