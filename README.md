@@ -1,4 +1,4 @@
-# serhatozdal/php-java-optional
+# keerill/php-java-optional
 
 Full implementation of JAVA8 Optional for PHP
 
@@ -12,27 +12,35 @@ Usage
 ```php
 // ofEmpty refers Optional#empty() in java
 // It is renamed as ofEmpty() because of empty() is reserved by PHP 
-Optional::ofEmpty()->isPresent(); // false
+Optional::ofEmpty()
+    ->isPresent(); // false
 
-Optional::of("value")->orElse("elseValue"); // value
+Optional::of('value')
+    ->orElse('elseValue'); // value
  
-Optional::ofEmpty()->orElseThrow(function () { throw .... }); // throws exception
+Optional::ofEmpty()
+    ->orElseThrow(fn () => throw new InvalidArgumentException()); // throws exception
 
-Optional::ofEmpty()->filter(function ($a) { return (int) $a; }); // function is not executed
+Optional::ofEmpty()
+    ->filter(fn ($a) => (int) $a); // function is not executed
 
-Optional::of(5)->map(function ($a) { return $a * 2; })->get(); // returns 10
+Optional::of(5)
+    ->map(fn ($a) => $a * 2)
+    ->get(); // returns 10
 
-Optional::ofEmpty()->orElseGet(function () { return 10; }); // returns 10
+Optional::ofEmpty()
+    ->orElseGet(fn () => 10); // returns 10
 ```
 
 Installation
 =======
-```sh
-composer require serhatozdal/php-java-optional:1.0
-```
 
+```bash
+composer require keerill/php-java-optional
+```
 
 Resources
 =======
+
 * [Java 8 Optional Documentation](https://docs.oracle.com/javase/8/docs/api/java/util/Optional.html)
 * [Java 8 Optional Usage](http://www.oracle.com/technetwork/articles/java/java8-optional-2175753.html)

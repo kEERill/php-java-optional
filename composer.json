@@ -1,5 +1,5 @@
 {
-  "name": "serhatozdal/php-java-optional",
+  "name": "keerill/php-java-optional",
   "type": "library",
   "description": "Full implementation of Java8 Optional for PHP",
   "keywords": ["php optional", "java optional", "php java optional"],
@@ -10,22 +10,27 @@
       "name": "Serhat ÖZDAL",
       "email": "serhatozdal@gmail.com",
       "role": "Developer"
+    },
+    {
+      "name": "Kirill Popkov",
+      "email": "kirill.popkov.work@gmail.com",
+      "role": "Developer"
     }
   ],
   "require": {
-    "php": ">=5.5.0"
+    "php": "^8.1"
   },
   "require-dev": {
-    "phpunit/phpunit": "^4"
+    "phpunit/phpunit": "^10.0"
   },
   "autoload": {
     "psr-4": {
-      "serhatozdal\\optional\\": "src/serhatozdal/optional/"
+      "Keerill\\Optional\\": "src"
     }
   },
   "autoload-dev": {
     "psr-4": {
-      "serhatozdal\\optional\\": "test/serhatozdal/optional/"
+      "Keerill\\Optional\\Tests\\": "tests"
     }
   }
 }
