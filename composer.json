@@ -32,5 +32,8 @@
     "psr-4": {
       "Keerill\\Optional\\Tests\\": "tests"
     }
+  },
+  "scripts": {
+    "test": "vendor/bin/phpunit"
   }
 }
