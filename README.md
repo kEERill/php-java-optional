@@ -3,7 +3,7 @@
 Full implementation of JAVA8 Optional for PHP
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/keerill/php-java-optional.svg?style=flat-square)](https://packagist.org/packages/keerill/php-java-optional)
-[![GitHub Tests Action Status](https://img.shields.io/github/actions/workflow/status/keerill/php-java-optional/run-tests.yml?branch=main&label=tests&style=flat-square)](https://github.com/keerill/php-java-optional/actions?query=workflow%3Arun-tests+branch%3Amain)
+[![GitHub Tests Action Status](https://img.shields.io/github/actions/workflow/status/keerill/php-java-optional/run-tests.yml?branch=master&label=tests&style=flat-square)](https://github.com/keerill/php-java-optional/actions?query=workflow%3Arun-tests+branch%3Amain)
 [![Total Downloads](https://img.shields.io/packagist/dt/keerill/php-java-optional.svg?style=flat-square)](https://packagist.org/packages/keerill/php-java-optional)
 
 ## Usage
