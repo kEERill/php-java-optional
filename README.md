@@ -19,7 +19,7 @@ Optional::of('value')
     ->orElse('elseValue'); // value
  
 Optional::ofEmpty()
-    ->orElseThrow(fn () => throw new InvalidArgumentException()); // throws exception
+    ->orElseThrow(fn () => new InvalidArgumentException()); // throws exception
 
 Optional::ofEmpty()
     ->filter(fn ($a) => (int) $a); // function is not executed
