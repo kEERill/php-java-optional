@@ -3,7 +3,7 @@
 namespace Keerill\Optional;
 
 use InvalidArgumentException;
-use PHPUnit\Event\Code\Throwable;
+use Throwable;
 
 /**
  * @author serhatozdal
@@ -25,7 +25,7 @@ final class Optional
     }
 
     /**
-     * @return Optional<null>
+     * @return Optional
      */
     public static function ofEmpty(): self
     {
@@ -36,7 +36,7 @@ final class Optional
      * @param T $value
      * @return Optional<T>
      */
-    public static function of(mixed $value): Optional
+    public static function of($value): Optional
     {
         return new self(self::requireNonNull($value));
     }
@@ -51,9 +51,9 @@ final class Optional
     }
 
     /**
-     * @return T
+     * @return T|null
      */
-    public function get(): mixed
+    public function get()
     {
         return $this->value;
     }
@@ -89,8 +89,9 @@ final class Optional
     }
 
     /**
-     * @param callable(T): T $mapper
-     * @return Optional<T>
+     * @template E
+     * @param callable(T): E $mapper
+     * @return Optional<E>
      */
     public function map(callable $mapper): Optional
     {
@@ -99,6 +100,7 @@ final class Optional
     }
 
     /**
+     * @deprecated
      * @param callable(T): T $mapper
      * @return Optional<T>
      */
@@ -118,14 +120,14 @@ final class Optional
      * @param T $other
      * @return T
      */
-    public function orElse(mixed $other): mixed
+    public function orElse($other)
     {
         return $this->isPresent()
             ? $this->value : $other;
     }
 
     /**
-     * @param callable(T): T $other
+     * @param callable(): T $other
      * @return T
      */
     public function orElseGet(callable $other)
@@ -135,8 +137,11 @@ final class Optional
     }
 
     /**
-     * @param callable(): Throwable $exceptionSupplier
+     * @template E
+     * @param callable(): E $exceptionSupplier
      * @return T
+     *
+     * @throws E
      */
     public function orElseThrow(callable $exceptionSupplier)
     {

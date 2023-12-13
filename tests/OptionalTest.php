@@ -92,6 +92,10 @@ class OptionalTest extends TestCase
             ->map(fn ($a) => $a * 2)
             ->get();
 
+        Optional::of(5)
+            ->map(fn (int $a): int => "$a")
+            ->get();
+
         $this->assertEquals(10, $optional);
     }
 
